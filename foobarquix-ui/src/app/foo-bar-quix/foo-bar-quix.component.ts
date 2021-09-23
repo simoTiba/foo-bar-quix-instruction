@@ -1,27 +1,33 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { FooBarQuixService } from '../foo-bar-quix.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {FooBarQuixService} from '../foo-bar-quix.service';
+import {TestCase} from "../model/test-case";
 
 @Component({
-  selector: 'app-foo-bar-quix',
-  templateUrl: './foo-bar-quix.component.html'
+    selector: 'app-foo-bar-quix',
+    templateUrl: './foo-bar-quix.component.html'
 })
 export class FooBarQuixComponent implements OnInit, OnDestroy {
 
-  constructor(private fooBarQuixService: FooBarQuixService) { }
+    constructor(private fooBarQuixService: FooBarQuixService) {
+    }
 
-  ngOnInit(): void {
-  }
+    inputText: number;
+    arr: Array<string> = [];
 
-  ngOnDestroy(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  convertNumber(inputNumber: number): void {
-  }
+    ngOnDestroy(): void {
+    }
+
+    convertNumber(inputNumber: TestCase): void {
+        let result = inputNumber.output + " is the output of " + inputNumber.input;
+        this.arr.push(result)
+    }
 
 }
 
 interface NumberConverted {
-  numberToConvert: number;
-  result: string;
+    numberToConvert: number;
+    result: string;
 }
