@@ -13,6 +13,19 @@ class FooBarQuixApplicationTests {
     lateinit var fooBarQuixService: FooBarQuixService;
 
     @Test
+    fun convert_shouldReturnBarBuzz_whenInputIs_10() {
+        //Given
+        var input = 10;
+        var expected = "BarBuzz";
+
+        //When
+        var result = fooBarQuixService.convertNumber(input);
+
+        //Then
+        assertEquals(result, expected);
+    }
+
+    @Test
     fun convert_shouldReturnOne_whenInputIs_1() {
         //Given
         var input = 1;
@@ -52,10 +65,23 @@ class FooBarQuixApplicationTests {
     }
 
     @Test
-    fun convert_shouldReturnQuix_whenInputIs_7() {
+    fun convert_shouldReturnQuixQuix_whenInputIs_7() {
         //Given
         var input = 7;
-        var expected = "Quix";
+        var expected = "QuixQuix";
+
+        //When
+        var result = fooBarQuixService.convertNumber(input);
+
+        //Then
+        assertEquals(result, expected);
+    }
+
+    @Test
+    fun convert_shouldReturnQuixQuixQuix_whenInputIs_77() {
+        //Given
+        var input = 77;
+        var expected = "QuixQuixQuix";
 
         //When
         var result = fooBarQuixService.convertNumber(input);

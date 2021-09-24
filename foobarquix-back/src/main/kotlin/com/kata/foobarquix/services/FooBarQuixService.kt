@@ -13,9 +13,15 @@ class FooBarQuixService {
         if (inputNumber % 5 == 0) {
             strBuilder.append("Bar")
         }
+        if (inputNumber % 7 == 0) {
+            strBuilder.append("Quix")
+        }
         val numberInString: String = inputNumber.toString()
         for (element in numberInString) {
             when (element) {
+                '0' -> {
+                    strBuilder.append("Buzz")
+                }
                 '3' -> {
                     strBuilder.append("Foo")
                 }
